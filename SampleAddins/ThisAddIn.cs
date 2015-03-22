@@ -13,6 +13,11 @@ namespace SampleAddins
     {
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            var activeSheet = ExcelAddIn1.Globals.ThisAddIn.Application.ActiveSheet
+                as Microsoft.Office.Interop.Excel.Worksheet;
+
+            //Excelのセルは添え字が１から開始な点に注意
+            activeSheet.Cells[1, 1] = "書き込んでみるでござる";
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
